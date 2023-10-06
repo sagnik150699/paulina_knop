@@ -1,0 +1,28 @@
+name: Flutter CI/CD
+
+on:
+  push:
+    branches:
+      - main  # or your default branch name
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.13.6'  # specify the Flutter version
+
+    - name: Install Dependencies
+      run: flutter pub get
+
+    - name: Build APK
+      run: flutter build apk --release
+
+    # Add more steps as needed, e.g., building APK/IPA, deploying to stores, etc.
