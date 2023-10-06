@@ -19,6 +19,12 @@ jobs:
       with:
         flutter-version: '3.13.6'  # specify the Flutter version
 
+    - name: Set up JDK 17
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
     - name: Install Dependencies
       run: flutter pub get
 
