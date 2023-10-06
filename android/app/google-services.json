@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "555718417628",
+    "project_id": "portfolio-782e9",
+    "storage_bucket": "portfolio-782e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555718417628:android:5cfdce50bfdb4bd24be819",
+        "android_client_info": {
+          "package_name": "paulinaknop.com.paulina_knop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJemnZV4Seo9n_atjl-FIrGEKa1yf95Ww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
