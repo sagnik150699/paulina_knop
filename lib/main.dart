@@ -1,10 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:paulina_knop/routes.dart';
 import 'package:url_strategy/url_strategy.dart';
-
 import 'firebase_options.dart';
 
 void main() async {
