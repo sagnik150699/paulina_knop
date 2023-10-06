@@ -3,7 +3,7 @@ name: Flutter CI/CD
 on:
   push:
     branches:
-      - main  # or your default branch name
+      - master  # or your default branch name
 
 jobs:
   build:
