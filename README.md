@@ -1,4 +1,4 @@
-# paulina_knop
+# Portfolio App With Flutter by Coding Liquids
 
 Personal Portfolio Flutter App
 Welcome to this Flutter-based portfolio application by Coding Liquids, designed to showcase an individual's achievements, skills, and projects.
