@@ -187,7 +187,7 @@ class DrawersWeb extends StatelessWidget {
               urlLauncher(
                   "assets/twitter.svg", "https://www.twitter.com/tomcruise"),
               urlLauncher(
-                  "assets/github.svg", "https://www.github.com/paulinaknop"),
+                  "assets/github.svg", "https://github.com/sagnik150699/paulina_knop"),
             ],
           ),
         ],
@@ -235,7 +235,7 @@ class DrawersMobile extends StatelessWidget {
               urlLauncher(
                   "assets/twitter.svg", "https://www.twitter.com/tomcruise"),
               urlLauncher(
-                  "assets/github.svg", "https://www.github.com/paulinaknop"),
+                  "assets/github.svg", "https://github.com/sagnik150699/paulina_knop"),
             ],
           )
         ],
