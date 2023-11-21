@@ -186,8 +186,8 @@ class DrawersWeb extends StatelessWidget {
                   "https://www.instagram.com/tomcruise/"),
               urlLauncher(
                   "assets/twitter.svg", "https://www.twitter.com/tomcruise"),
-              urlLauncher(
-                  "assets/github.svg", "https://github.com/sagnik150699/paulina_knop"),
+              urlLauncher("assets/github.svg",
+                  "https://github.com/sagnik150699/paulina_knop"),
             ],
           ),
         ],
@@ -234,8 +234,8 @@ class DrawersMobile extends StatelessWidget {
                   "https://www.instagram.com/tomcruise/"),
               urlLauncher(
                   "assets/twitter.svg", "https://www.twitter.com/tomcruise"),
-              urlLauncher(
-                  "assets/github.svg", "https://github.com/sagnik150699/paulina_knop"),
+              urlLauncher("assets/github.svg",
+                  "https://github.com/sagnik150699/paulina_knop"),
             ],
           )
         ],
@@ -279,6 +279,7 @@ class AbelCustom extends StatelessWidget {
   final size;
   final color;
   final fontWeight;
+
   const AbelCustom(
       {Key? key,
       @required this.text,
@@ -432,6 +433,7 @@ class _AnimatedCardState extends State<AnimatedCard>
 class AddDataFirestore {
   CollectionReference response =
       FirebaseFirestore.instance.collection('messages');
+
   Future addResponse(final firstName, final lastName, final email,
       final phoneNumber, final message) async {
     return response.add({
@@ -469,6 +471,7 @@ class ContactFormWeb extends StatefulWidget {
 
 class _ContactFormWebState extends State<ContactFormWeb> {
   final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     var widthDevice = MediaQuery.of(context).size.width;
@@ -584,6 +587,7 @@ class ContactFormMobile extends StatefulWidget {
 
 class _ContactFormMobileState extends State<ContactFormMobile> {
   final formKey = GlobalKey<FormState>();
+
   // final TextEditingController _firstNameController = TextEditingController();
   // final TextEditingController _lastNameController = TextEditingController();
   // final TextEditingController _emailController = TextEditingController();

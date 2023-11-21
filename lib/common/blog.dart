@@ -118,6 +118,7 @@ class BlogPost extends StatefulWidget {
   final title;
   final body;
   final isWeb;
+
   const BlogPost(
       {Key? key,
       @required this.title,
@@ -131,6 +132,7 @@ class BlogPost extends StatefulWidget {
 
 class _BlogPostState extends State<BlogPost> {
   bool expand = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(

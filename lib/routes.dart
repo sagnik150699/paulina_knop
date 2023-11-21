@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:paulina_knop/common/blog.dart';
 import 'package:paulina_knop/mobile/about_mobile.dart';
-
 import 'package:paulina_knop/mobile/contact_mobile.dart';
 import 'package:paulina_knop/mobile/works_mobile.dart';
 import 'package:paulina_knop/web/about_web.dart';
-
 import 'package:paulina_knop/web/landing_page_web.dart';
 import 'package:paulina_knop/web/works_web.dart';
 
