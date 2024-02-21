@@ -44,7 +44,7 @@ class _BlogState extends State<Blog> {
   // }
   @override
   Widget build(BuildContext context) {
-    bool isWeb = MediaQuery.of(context).size.width > 800;
+    bool is_web = MediaQuery.of(context).size.width > 800;
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
@@ -60,17 +60,17 @@ class _BlogState extends State<Blog> {
                   color: Colors.black,
                 ),
                 flexibleSpace: FlexibleSpaceBar(
-                  centerTitle: isWeb ? false : true,
+                  centerTitle: is_web ? false : true,
                   title: Container(
                     decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(3.0),
                     ),
                     padding:
-                        EdgeInsets.symmetric(horizontal: isWeb ? 7.0 : 4.0),
+                        EdgeInsets.symmetric(horizontal: is_web ? 7.0 : 4.0),
                     child: AbelCustom(
                       text: "Welcome to my blog",
-                      size: isWeb ? 30.0 : 24.0,
+                      size: is_web ? 30.0 : 24.0,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -81,7 +81,7 @@ class _BlogState extends State<Blog> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                expandedHeight: isWeb ? 500.0 : 400.0,
+                expandedHeight: is_web ? 500.0 : 400.0,
               )
             ];
           },
@@ -98,7 +98,7 @@ class _BlogState extends State<Blog> {
                     return BlogPost(
                       title: documentSnapshot["title"],
                       body: documentSnapshot["body"],
-                      isWeb: isWeb,
+                      isWeb: is_web,
                     );
                   },
                 );
