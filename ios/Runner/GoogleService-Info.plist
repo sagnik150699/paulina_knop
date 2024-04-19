@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>906950632784-26k53q0hqq813uv9ctc0rddliemddba5.apps.googleusercontent.com</string>
+	<string>555718417628-v5r90hccobuaf7jhs6p5ahbpbh28cnk3.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.906950632784-26k53q0hqq813uv9ctc0rddliemddba5</string>
+	<string>com.googleusercontent.apps.555718417628-v5r90hccobuaf7jhs6p5ahbpbh28cnk3</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDfw8YGFVqWBLyjnwqtBND_GPinLD8cqLM</string>
+	<string>AIzaSyCwUlLQUxAmcu6-k3onacgaUX_8DrZqwkw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>906950632784</string>
+	<string>555718417628</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>paulinaknop.com.paulinaKnop</string>
+	<string>com.codingliquids.paulinaKnop</string>
 	<key>PROJECT_ID</key>
-	<string>paulina-knop</string>
+	<string>portfolio-782e9</string>
 	<key>STORAGE_BUCKET</key>
-	<string>paulina-knop.appspot.com</string>
+	<string>portfolio-782e9.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:906950632784:ios:3b426246cab23fb42d3855</string>
+	<string>1:555718417628:ios:b6c3e43ba75d4f8e4be819</string>
 </dict>
 </plist>

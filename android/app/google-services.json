@@ -7,12 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:555718417628:android:5cfdce50bfdb4bd24be819",
+        "mobilesdk_app_id": "1:555718417628:android:327bc09099557d664be819",
         "android_client_info": {
-          "package_name": "paulinaknop.com.paulina_knop"
+          "package_name": "com.codingliquids.paulina_knop"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "555718417628-3lv9pq0paolrpdcge6c6fsb5hg1gecer.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCJemnZV4Seo9n_atjl-FIrGEKa1yf95Ww"
@@ -20,7 +25,55 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555718417628-3lv9pq0paolrpdcge6c6fsb5hg1gecer.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "555718417628-39q375t9n9to1m9inofb4s462gvme3ss.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "paulinaknop.com.paulinaKnop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555718417628:android:5cfdce50bfdb4bd24be819",
+        "android_client_info": {
+          "package_name": "paulinaknop.com.paulina_knop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555718417628-3lv9pq0paolrpdcge6c6fsb5hg1gecer.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJemnZV4Seo9n_atjl-FIrGEKa1yf95Ww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555718417628-3lv9pq0paolrpdcge6c6fsb5hg1gecer.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "555718417628-39q375t9n9to1m9inofb4s462gvme3ss.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "paulinaknop.com.paulinaKnop"
+              }
+            }
+          ]
         }
       }
     }

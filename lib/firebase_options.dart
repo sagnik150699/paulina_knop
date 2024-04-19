@@ -58,7 +58,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCJemnZV4Seo9n_atjl-FIrGEKa1yf95Ww',
-    appId: '1:555718417628:android:5cfdce50bfdb4bd24be819',
+    appId: '1:555718417628:android:327bc09099557d664be819',
     messagingSenderId: '555718417628',
     projectId: 'portfolio-782e9',
     storageBucket: 'portfolio-782e9.appspot.com',
@@ -66,10 +66,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCwUlLQUxAmcu6-k3onacgaUX_8DrZqwkw',
-    appId: '1:555718417628:ios:83e569d1fe6288c94be819',
+    appId: '1:555718417628:ios:b6c3e43ba75d4f8e4be819',
     messagingSenderId: '555718417628',
     projectId: 'portfolio-782e9',
     storageBucket: 'portfolio-782e9.appspot.com',
-    iosBundleId: 'paulinaknop.com.paulinaKnop',
+    iosClientId: '555718417628-v5r90hccobuaf7jhs6p5ahbpbh28cnk3.apps.googleusercontent.com',
+    iosBundleId: 'com.codingliquids.paulinaKnop',
   );
 }
