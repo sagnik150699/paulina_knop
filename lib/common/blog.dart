@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../components.dart';
 
+/// The main widget for displaying the blog section.
 class Blog extends StatefulWidget {
   const Blog({Key? key}) : super(key: key);
 
@@ -12,65 +12,36 @@ class Blog extends StatefulWidget {
 }
 
 class _BlogState extends State<Blog> {
-  // List title = ["Who is Dash?", "Who is Dash 1?"];
-  // List body = ["Well, we can all read about it in google", "Google it"];
-  // void article() async {
-  //   await FirebaseFirestore.instance
-  //       .collection("articles")
-  //       .get()
-  //       .then((querySnapshot) {
-  //     querySnapshot.docs.reversed.forEach((element) {
-  //       //print(element.data()['title']);
-  //     });
-  //   });
-  // }
-  //
-  // void streamArticle() async {
-  //   var logger = Logger();
-  //
-  //   await for (var snapshot
-  //       in FirebaseFirestore.instance.collection('articles').snapshots()) {
-  //     for (var title in snapshot.docs.reversed) {
-  //       logger.d(title.data()['title']);
-  //     }
-  //   }
-  // }
-
-  // @override
-  // void initState() {
-  //   streamArticle();
-  //   //article();
-  //   super.initState();
-  // }
   @override
   Widget build(BuildContext context) {
-    bool is_web = MediaQuery.of(context).size.width > 800;
+    // Determine if the device is a web device based on its width
+    bool isWeb = MediaQuery.of(context).size.width > 800;
+
     return SafeArea(
       child: Scaffold(
+        // Extend the body behind the app bar
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.white,
-        endDrawer: DrawersMobile(),
+        // Drawer for navigation
+        endDrawer: const DrawersMobile(),
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverAppBar(
                 backgroundColor: Colors.white,
-                iconTheme: IconThemeData(
-                  size: 35.0,
-                  color: Colors.black,
-                ),
+                iconTheme: const IconThemeData(size: 35.0, color: Colors.black),
                 flexibleSpace: FlexibleSpaceBar(
-                  centerTitle: is_web ? false : true,
+                  centerTitle: !isWeb,
                   title: Container(
                     decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(3.0),
                     ),
                     padding:
-                        EdgeInsets.symmetric(horizontal: is_web ? 7.0 : 4.0),
+                        EdgeInsets.symmetric(horizontal: isWeb ? 7.0 : 4.0),
                     child: AbelCustom(
                       text: "Welcome to my blog",
-                      size: is_web ? 30.0 : 24.0,
+                      size: isWeb ? 30.0 : 24.0,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -81,8 +52,8 @@ class _BlogState extends State<Blog> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                expandedHeight: is_web ? 500.0 : 400.0,
-              )
+                expandedHeight: isWeb ? 500.0 : 400.0,
+              ),
             ];
           },
           body: StreamBuilder<QuerySnapshot>(
@@ -98,14 +69,13 @@ class _BlogState extends State<Blog> {
                     return BlogPost(
                       title: documentSnapshot["title"],
                       body: documentSnapshot["body"],
-                      isWeb: is_web,
+                      isWeb: isWeb,
                     );
                   },
                 );
-              } else
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
+              } else {
+                return const Center(child: CircularProgressIndicator());
+              }
             },
           ),
         ),
@@ -114,17 +84,18 @@ class _BlogState extends State<Blog> {
   }
 }
 
+/// A widget for displaying individual blog posts.
 class BlogPost extends StatefulWidget {
-  final title;
-  final body;
-  final isWeb;
+  final String title;
+  final String body;
+  final bool isWeb;
 
-  const BlogPost(
-      {Key? key,
-      @required this.title,
-      @required this.body,
-      required this.isWeb})
-      : super(key: key);
+  const BlogPost({
+    Key? key,
+    required this.title,
+    required this.body,
+    required this.isWeb,
+  }) : super(key: key);
 
   @override
   State<BlogPost> createState() => _BlogPostState();
@@ -137,13 +108,14 @@ class _BlogPostState extends State<BlogPost> {
   Widget build(BuildContext context) {
     return Padding(
       padding: widget.isWeb
-          ? EdgeInsets.only(left: 70.0, right: 70.0, top: 40.0)
-          : EdgeInsets.only(left: 20.0, right: 20.0, top: 30.0),
+          ? const EdgeInsets.only(left: 70.0, right: 70.0, top: 40.0)
+          : const EdgeInsets.only(left: 20.0, right: 20.0, top: 30.0),
       child: Container(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         decoration: BoxDecoration(
-            border: Border.all(
-                style: BorderStyle.solid, width: 1.0, color: Colors.black)),
+          border: Border.all(
+              style: BorderStyle.solid, width: 1.0, color: Colors.black),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -151,13 +123,13 @@ class _BlogPostState extends State<BlogPost> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 5.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
                   decoration: BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(3.0),
                   ),
                   child: AbelCustom(
-                    text: widget.title.toString(),
+                    text: widget.title,
                     size: 25.0,
                     color: Colors.white,
                   ),
@@ -168,18 +140,17 @@ class _BlogPostState extends State<BlogPost> {
                       expand = !expand;
                     });
                   },
-                  icon: Icon(Icons.arrow_drop_down_circle_outlined),
+                  icon: const Icon(Icons.arrow_drop_down_circle_outlined),
                   color: Colors.black,
-                )
+                ),
               ],
             ),
-            SizedBox(height: 7.0),
+            const SizedBox(height: 7.0),
             Text(
-              widget.body.toString(),
+              widget.body,
               style: GoogleFonts.openSans(fontSize: 15.0),
-              maxLines: expand == true ? null : 3,
-              overflow:
-                  expand == true ? TextOverflow.visible : TextOverflow.ellipsis,
+              maxLines: expand ? null : 3,
+              overflow: expand ? TextOverflow.visible : TextOverflow.ellipsis,
             ),
           ],
         ),

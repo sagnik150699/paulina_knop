@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../components.dart';
 
+/// The main widget for displaying the about section on mobile devices.
 class AboutMobile extends StatefulWidget {
   const AboutMobile({Key? key}) : super(key: key);
 
@@ -14,19 +15,21 @@ class _AboutMobileState extends State<AboutMobile> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // Extend the body behind the app bar
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          iconTheme: IconThemeData(size: 35.0, color: Colors.black),
+          iconTheme: const IconThemeData(size: 35.0, color: Colors.black),
         ),
-        endDrawer: DrawersMobile(),
+        // Drawer for navigation
+        endDrawer: const DrawersMobile(),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: ListView(
             children: [
-              //Introduction, first section
+              // Introduction section
               CircleAvatar(
                 radius: 117.0,
                 backgroundColor: Colors.tealAccent,
@@ -43,24 +46,24 @@ class _AboutMobileState extends State<AboutMobile> {
                   ),
                 ),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SansBold("About me", 35.0),
-                    SizedBox(height: 10.0),
-                    Sans(
-                        "Hello! I'm Paulina Knop I specialize in flutter development",
-                        15.0),
-                    Sans(
-                        "I strive to ensure astounding performance with state of ",
-                        15.0),
-                    Sans("the art security for Android, Ios, Web, Mac,Linux",
-                        15.0),
-                    SizedBox(height: 15.0),
+                    const SansBold("About me", 35.0),
+                    const SizedBox(height: 10.0),
+                    const Sans(
+                      "Hello! I'm Paulina Knop. I specialize in Flutter development",
+                      15.0,
+                    ),
+                    const Sans(
+                      "I strive to ensure astounding performance with state of the art security for Android, iOS, Web, Mac, and Linux.",
+                      15.0,
+                    ),
+                    const SizedBox(height: 15.0),
                     Wrap(
                       spacing: 7.0,
                       runSpacing: 7.0,
@@ -70,82 +73,69 @@ class _AboutMobileState extends State<AboutMobile> {
                         tealContainer("Android"),
                         tealContainer("Windows"),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
-              SizedBox(height: 40.0),
+              const SizedBox(height: 40.0),
 
-              //Web development, second section
+              // Web development section
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  AnimatedCard(
+                  const AnimatedCard(
                     imagePath: "assets/webL.png",
                     width: 200.0,
                   ),
-                  SizedBox(
-                    height: 30.0,
+                  const SizedBox(height: 30.0),
+                  const SansBold("Web development", 20.0),
+                  const SizedBox(height: 10.0),
+                  const Sans(
+                    "I'm here to build your presence online with state-of-the-art web apps.",
+                    15.0,
                   ),
-                  SansBold("Web development", 20.0),
-                  SizedBox(height: 10.0),
                 ],
               ),
-              Sans(
-                  "I'm here to build your presence online with state of the art web apps",
-                  15.0),
 
-              //App development, third section
+              // App development section
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  AnimatedCard(
+                  const SizedBox(height: 20.0),
+                  const AnimatedCard(
                     imagePath: "assets/app.png",
                     width: 200.0,
                     reverse: true,
                   ),
-                  SizedBox(
-                    height: 30.0,
-                  ),
-                  SansBold("App development.", 20.0),
-                  SizedBox(
-                    height: 10.0,
+                  const SizedBox(height: 30.0),
+                  const SansBold("App development", 20.0),
+                  const SizedBox(height: 10.0),
+                  const Sans(
+                    "Do you need a high-performance, responsive, and beautiful app? Don't worry, I've got you covered.",
+                    15.0,
                   ),
                 ],
               ),
-              Sans(
-                  "Do you need a high-performance, responsive and beautiful app? Don't worry, I've got you covered.",
-                  15.0),
 
-              //Back end development, forth section
+              // Back-end development section
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  AnimatedCard(
+                  const SizedBox(height: 20.0),
+                  const AnimatedCard(
                     imagePath: "assets/firebase.png",
                     width: 200.0,
                   ),
-                  SizedBox(
-                    height: 30.0,
-                  ),
-                  SansBold("Back-end development.", 20.0),
-                  SizedBox(
-                    height: 10.0,
+                  const SizedBox(height: 30.0),
+                  const SansBold("Back-end development", 20.0),
+                  const SizedBox(height: 10.0),
+                  const Sans(
+                    "Do you want your back-end to be highly scalable and secure? Let's have a conversation on how I can help you with that.",
+                    15.0,
                   ),
                 ],
               ),
-              Sans(
-                  "Do you want your back-end to be highly scalable and secure? Let's have a conversation on how I can help you with that.",
-                  15.0),
-              SizedBox(
-                height: 20.0,
-              )
+              const SizedBox(height: 20.0),
             ],
           ),
         ),

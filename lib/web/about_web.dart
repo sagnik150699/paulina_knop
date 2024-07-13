@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paulina_knop/components.dart';
 
+/// The main widget for displaying the about section on web devices.
 class AboutWeb extends StatefulWidget {
   const AboutWeb({Key? key}) : super(key: key);
 
@@ -11,22 +12,25 @@ class AboutWeb extends StatefulWidget {
 class _AboutWebState extends State<AboutWeb> {
   @override
   Widget build(BuildContext context) {
+    // Get the width of the device
     var widthDevice = MediaQuery.of(context).size.width;
+
     return Scaffold(
-      drawer: DrawersWeb(),
+      // Drawer for navigation
+      drawer: const DrawersWeb(),
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           size: 25.0,
           color: Colors.black,
         ),
-        title: TabsWebList(),
+        title: const TabsWebList(),
       ),
       body: ListView(
         children: [
-          //About me, first section
+          // About me section
           SizedBox(
             height: 500.0,
             child: Row(
@@ -37,34 +41,27 @@ class _AboutWebState extends State<AboutWeb> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SansBold("About me", 40.0),
-                    SizedBox(height: 15.0),
-                    Sans(
-                        "Hello! I'm Paulina Knop I specialize in flutter development.",
-                        15.0),
-                    Sans(
-                        "I strive to ensure astounding performance with state of",
-                        15.0),
-                    Sans(
-                        "the art security for Android, Ios, Web, Mac, Linux and Windows",
-                        15.0),
-                    SizedBox(height: 10.0),
+                    const SansBold("About me", 40.0),
+                    const SizedBox(height: 15.0),
+                    const Sans(
+                      "Hello! I'm Paulina Knop. I specialize in flutter development.",
+                      15.0,
+                    ),
+                    const Sans(
+                      "I strive to ensure astounding performance with state of the art security for Android, iOS, Web, Mac, Linux and Windows.",
+                      15.0,
+                    ),
+                    const SizedBox(height: 10.0),
                     Row(
                       children: [
                         tealContainer("Flutter"),
-                        SizedBox(
-                          width: 7.0,
-                        ),
+                        const SizedBox(width: 7.0),
                         tealContainer("Firebase"),
-                        SizedBox(
-                          width: 7.0,
-                        ),
+                        const SizedBox(width: 7.0),
                         tealContainer("Android"),
-                        SizedBox(
-                          width: 7.0,
-                        ),
-                        tealContainer("IOS"),
-                        SizedBox(width: 7.0),
+                        const SizedBox(width: 7.0),
+                        tealContainer("iOS"),
+                        const SizedBox(width: 7.0),
                         tealContainer("Windows"),
                       ],
                     ),
@@ -89,12 +86,13 @@ class _AboutWebState extends State<AboutWeb> {
               ],
             ),
           ),
+          const SizedBox(height: 20.0),
 
-          //Web development, second section
+          // Web development section
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              AnimatedCard(
+              const AnimatedCard(
                 imagePath: "assets/webL.png",
                 height: 250.0,
                 width: 250.0,
@@ -102,49 +100,52 @@ class _AboutWebState extends State<AboutWeb> {
               SizedBox(
                 width: widthDevice / 3,
                 child: Column(
-                  children: [
+                  children: const [
                     SansBold("Web development", 30.0),
                     SizedBox(height: 15.0),
                     Sans(
-                        "I'm here to build your presence online with state of the art web apps.",
-                        15.0)
+                      "I'm here to build your presence online with state of the art web apps.",
+                      15.0,
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
-          SizedBox(height: 20.0),
-          //App development, third section
+          const SizedBox(height: 20.0),
+
+          // App development section
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SizedBox(
                 width: widthDevice / 3,
                 child: Column(
-                  children: [
+                  children: const [
                     SansBold("App development", 30.0),
                     SizedBox(height: 15.0),
                     Sans(
-                        "Do you need a high-performance, responsive and beautiful app? Don't worry, I've got you covered.",
-                        15.0),
+                      "Do you need a high-performance, responsive and beautiful app? Don't worry, I've got you covered.",
+                      15.0,
+                    ),
                   ],
                 ),
               ),
-              AnimatedCard(
+              const AnimatedCard(
                 imagePath: "assets/app.png",
                 height: 250.0,
                 width: 250.0,
                 reverse: true,
-              )
+              ),
             ],
           ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
 
-          //Back-end development, second section
+          // Back-end development section
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              AnimatedCard(
+              const AnimatedCard(
                 imagePath: "assets/firebase.png",
                 height: 250.0,
                 width: 250.0,
@@ -152,20 +153,19 @@ class _AboutWebState extends State<AboutWeb> {
               SizedBox(
                 width: widthDevice / 3,
                 child: Column(
-                  children: [
+                  children: const [
                     SansBold("Back-end development", 30.0),
-                    SizedBox(
-                      height: 15.0,
-                    ),
+                    SizedBox(height: 15.0),
                     Sans(
-                        "Do you want your back-end to be highly scalable and secure? Let's have a conversation on how I can help you with that.",
-                        15.0),
+                      "Do you want your back-end to be highly scalable and secure? Let's have a conversation on how I can help you with that.",
+                      15.0,
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
-          SizedBox(height: 40.0),
+          const SizedBox(height: 40.0),
         ],
       ),
     );
