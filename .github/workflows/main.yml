@@ -6,50 +6,159 @@ on:
       - master
 
 jobs:
-  build:
-    name: Build Android & Web
-    runs-on: ubuntu-latest
+  build_windows:
+    name: Build Android, Web, and Windows
+    runs-on: windows-latest
 
     steps:
+      # Step 1: Checkout the Repository
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.22.0'  # specify the Flutter version
-
+      # Step 2: Set up JDK for Android build
       - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
           distribution: 'temurin'
           java-version: '17'
 
+      # Step 3: Install Flutter
+      - name: Install Flutter
+        run: |
+          git clone https://github.com/flutter/flutter.git --depth 1 -b stable _flutter
+      # Step 4: Flutter Configuration for Windows
+      - name: Flutter Config
+        run: ${{ github.workspace }}\_flutter\bin\flutter.bat config --enable-windows-desktop
+
+      # Step 5: Install Dependencies (Flutter packages)
       - name: Install Dependencies
-        run: flutter pub get
+        run: ${{ github.workspace }}\_flutter\bin\flutter.bat pub get
 
-      - name: Build APK
-        run: flutter build apk --release
+      # Step 6: Build Windows Executable
+      - name: Build Windows Executable
+        run: ${{ github.workspace }}\_flutter\bin\flutter.bat build windows
 
+      # Step 7: Upload Windows Artifact
+      - name: Upload Windows Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-app
+          path: build/windows/runner/Release/
+
+      # Step 8: Build Android APK
+      - name: Build Android APK
+        run: ${{ github.workspace }}\_flutter\bin\flutter.bat build apk --release
+
+      # Step 9: Upload APK Artifact
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v3
         with:
           name: android-app
           path: build/app/outputs/flutter-apk/app-release.apk
 
-      - name: Build WEB
-        run: flutter build web --release
+      # Step 10: Build Web Application
+      - name: Build Web
+        run: ${{ github.workspace }}\_flutter\bin\flutter.bat build web --release
 
+      # Step 11: Upload Web Artifact
       - name: Upload Web Artifact
         uses: actions/upload-artifact@v3
         with:
           name: web-app
           path: build/web/
+  #  build_windows:
+  #    name: Build Android, Web, and Windows
+  #    runs-on: windows-latest
+  #
+  #    steps:
+  #      # Step 1: Checkout the Repository
+  #      - name: Checkout Repository
+  #        uses: actions/checkout@v2
+  #
+  #      # Step 2: Set up JDK for Android build
+  #      - name: Set up JDK 17
+  #        uses: actions/setup-java@v2
+  #        with:
+  #          distribution: 'temurin'
+  #          java-version: '17'
+  #
+  #      # Step 3: Install Flutter and Set the Version
+  #      - name: Install Flutter
+  #        run: |
+  #          git clone https://github.com/flutter/flutter.git --depth 1 -b stable _flutter
+  #          echo "${{ github.workspace }}/_flutter/bin" >> $GITHUB_PATH
+  #
+  #      # Step 4: Flutter Configuration for Windows
+  #      - name: Flutter Config
+  #        run: flutter config --enable-windows-desktop
+  #
+  #      # Step 5: Install Dependencies (Flutter packages)
+  #      - name: Install Dependencies
+  #        run: flutter pub get
+  #
+  #      # Step 6: Build Windows Executable
+  #      - name: Build Windows Executable
+  #        run: flutter build windows
+  #
+  #      # Step 7: Upload Windows Artifact
+  #      - name: Upload Windows Artifact
+  #        uses: actions/upload-artifact@v2
+  #        with:
+  #          name: windows-app
+  #          path: build/windows/runner/Release/
+  #
+  #      # Step 8: Build Android APK
+  #      - name: Build Android APK
+  #        run: flutter build apk --release
+  #
+  #      # Step 9: Upload APK Artifact
+  #      - name: Upload APK Artifact
+  #        uses: actions/upload-artifact@v2
+  #        with:
+  #          name: android-app
+  #          path: build/app/outputs/flutter-apk/app-release.apk
+  #
+  #      # Step 10: Build Web Application
+  #      - name: Build Web
+  #        run: flutter build web --release
+  #
+  #      # Step 11: Upload Web Artifact
+  #      - name: Upload Web Artifact
+  #        uses: actions/upload-artifact@v2
+  #        with:
+  #          name: web-app
+  #          path: build/web/
 
 
 
-#  build_ios:
-#    runs-on: macOS-latest
+  build_ios:
+    name: Build iOS ,
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "17.x"
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '3.24.2'
+      - run : flutter pub get
+      - run: flutter build ios --no-codesign
+
+
+
+#name: Flutter CI/CD
+#
+#on:
+#  push:
+#    branches:
+#      - master
+#
+#jobs:
+#  build:
+#    name: Build Android & Web
+#    runs-on: ubuntu-latest
+#
 #    steps:
 #      - name: Checkout Repository
 #        uses: actions/checkout@v2
@@ -57,17 +166,57 @@ jobs:
 #      - name: Setup Flutter
 #        uses: subosito/flutter-action@v2
 #        with:
-#          flutter-version: '3.13.8'
-#      - name: Install CocoaPods
-#        run: |
-#          sudo gem install cocoapods
-#          cd ios
-#          pod install
+#          flutter-version: '3.24.3'  # specify the Flutter version
+#
+#      - name: Set up JDK 17
+#        uses: actions/setup-java@v2
+#        with:
+#          distribution: 'temurin'
+#          java-version: '17'
 #
 #      - name: Install Dependencies
 #        run: flutter pub get
 #
-#      - name: Build iOS
-#        run: flutter build ios --release --no-codesign
-
-    # Add more steps as needed, deploying to stores, etc.
+#      - name: Build APK
+#        run: flutter build apk --release
+#
+#      - name: Upload APK Artifact
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: android-app
+#          path: build/app/outputs/flutter-apk/app-release.apk
+#
+#      - name: Build WEB
+#        run: flutter build web --release
+#
+#      - name: Upload Web Artifact
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: web-app
+#          path: build/web/
+#
+#
+#
+##  build_ios:
+##    runs-on: macOS-latest
+##    steps:
+##      - name: Checkout Repository
+##        uses: actions/checkout@v2
+##
+##      - name: Setup Flutter
+##        uses: subosito/flutter-action@v2
+##        with:
+##          flutter-version: '3.13.8'
+##      - name: Install CocoaPods
+##        run: |
+##          sudo gem install cocoapods
+##          cd ios
+##          pod install
+##
+##      - name: Install Dependencies
+##        run: flutter pub get
+##
+##      - name: Build iOS
+##        run: flutter build ios --release --no-codesign
+#
+#    # Add more steps as needed, deploying to stores, etc.
