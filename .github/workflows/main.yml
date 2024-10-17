@@ -32,7 +32,7 @@ jobs:
         run: flutter build apk --release
 
       - name: Upload APK Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: android-app
           path: build/app/outputs/flutter-apk/app-release.apk
@@ -41,7 +41,7 @@ jobs:
         run: flutter build web --release
 
       - name: Upload Web Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: web-app
           path: build/web/

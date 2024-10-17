@@ -17,10 +17,11 @@ final TextEditingController _messageController = TextEditingController();
 
 // A StatefulWidget for creating navigation tabs on the web
 class TabsWeb extends StatefulWidget {
-  final String title;  // Title of the tab
-  final String route;  // Route to navigate to when the tab is clicked
+  final String title; // Title of the tab
+  final String route; // Route to navigate to when the tab is clicked
 
-  const TabsWeb({Key? key, required this.title, required this.route}) : super(key: key);
+  const TabsWeb({Key? key, required this.title, required this.route})
+      : super(key: key);
 
   @override
   _TabsWebState createState() => _TabsWebState();
@@ -28,7 +29,7 @@ class TabsWeb extends StatefulWidget {
 
 // State class for TabsWeb
 class _TabsWebState extends State<TabsWeb> {
-  bool isSelected = false;  // Boolean to track if the tab is selected
+  bool isSelected = false; // Boolean to track if the tab is selected
 
   @override
   Widget build(BuildContext context) {
@@ -53,18 +54,18 @@ class _TabsWebState extends State<TabsWeb> {
           curve: Curves.elasticIn,
           style: isSelected
               ? GoogleFonts.roboto(
-            shadows: [
-              Shadow(
-                color: Colors.black,
-                offset: Offset(0, -8),
-              ),
-            ],
-            fontSize: 25.0,
-            color: Colors.transparent,
-            decoration: TextDecoration.underline,
-            decorationThickness: 2,
-            decorationColor: Colors.tealAccent,
-          )
+                  shadows: [
+                    Shadow(
+                      color: Colors.black,
+                      offset: Offset(0, -8),
+                    ),
+                  ],
+                  fontSize: 25.0,
+                  color: Colors.transparent,
+                  decoration: TextDecoration.underline,
+                  decorationThickness: 2,
+                  decorationColor: Colors.tealAccent,
+                )
               : GoogleFonts.roboto(color: Colors.black, fontSize: 20.0),
           child: Text(widget.title),
         ),
@@ -99,10 +100,11 @@ class TabsWebList extends StatelessWidget {
 
 // A stateless widget for creating navigation tabs on mobile devices
 class TabsMobile extends StatelessWidget {
-  final String text;  // Text to display on the tab
-  final String route;  // Route to navigate to when the tab is clicked
+  final String text; // Text to display on the tab
+  final String route; // Route to navigate to when the tab is clicked
 
-  const TabsMobile({Key? key, required this.text, required this.route}) : super(key: key);
+  const TabsMobile({Key? key, required this.text, required this.route})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -163,9 +165,12 @@ class DrawersWeb extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              urlLauncher("assets/instagram.svg", "https://www.instagram.com/tomcruise/"),
-              urlLauncher("assets/twitter.svg", "https://www.twitter.com/tomcruise"),
-              urlLauncher("assets/github.svg", "https://github.com/sagnik150699/paulina_knop"),
+              urlLauncher("assets/instagram.svg",
+                  "https://www.instagram.com/tomcruise/"),
+              urlLauncher(
+                  "assets/twitter.svg", "https://www.twitter.com/tomcruise"),
+              urlLauncher("assets/github.svg",
+                  "https://github.com/sagnik150699/paulina_knop"),
             ],
           ),
         ],
@@ -210,9 +215,12 @@ class DrawersMobile extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              urlLauncher("assets/instagram.svg", "https://www.instagram.com/tomcruise/"),
-              urlLauncher("assets/twitter.svg", "https://www.twitter.com/tomcruise"),
-              urlLauncher("assets/github.svg", "https://github.com/sagnik150699/paulina_knop"),
+              urlLauncher("assets/instagram.svg",
+                  "https://www.instagram.com/tomcruise/"),
+              urlLauncher(
+                  "assets/twitter.svg", "https://www.twitter.com/tomcruise"),
+              urlLauncher("assets/github.svg",
+                  "https://github.com/sagnik150699/paulina_knop"),
             ],
           ),
         ],
@@ -223,8 +231,8 @@ class DrawersMobile extends StatelessWidget {
 
 // A stateless widget for displaying bold text using the Sans font
 class SansBold extends StatelessWidget {
-  final String text;  // Text to display
-  final double size;  // Font size
+  final String text; // Text to display
+  final double size; // Font size
 
   const SansBold(this.text, this.size, {Key? key}) : super(key: key);
 
@@ -239,8 +247,8 @@ class SansBold extends StatelessWidget {
 
 // A stateless widget for displaying text using the Sans font
 class Sans extends StatelessWidget {
-  final String text;  // Text to display
-  final double size;  // Font size
+  final String text; // Text to display
+  final double size; // Font size
 
   const Sans(this.text, this.size, {Key? key}) : super(key: key);
 
@@ -255,10 +263,10 @@ class Sans extends StatelessWidget {
 
 // A stateless widget for displaying text using the Abel font with customizable properties
 class AbelCustom extends StatelessWidget {
-  final String text;  // Text to display
-  final double size;  // Font size
-  final Color? color;  // Text color
-  final FontWeight? fontWeight;  // Font weight
+  final String text; // Text to display
+  final double size; // Font size
+  final Color? color; // Text color
+  final FontWeight? fontWeight; // Font weight
 
   const AbelCustom({
     Key? key,
@@ -283,12 +291,14 @@ class AbelCustom extends StatelessWidget {
 
 // A stateless widget for creating a form field with a label and validation
 class TextForm extends StatelessWidget {
-  final String text;  // Label text
-  final double containerWidth;  // Width of the form field container
-  final String hintText;  // Hint text to display in the form field
-  final int? maxLines;  // Maximum number of lines for the form field
-  final TextEditingController controller;  // Controller for managing the form field input
-  final String? Function(String?)? validator;  // Validator function for form field validation
+  final String text; // Label text
+  final double containerWidth; // Width of the form field container
+  final String hintText; // Hint text to display in the form field
+  final int? maxLines; // Maximum number of lines for the form field
+  final TextEditingController
+      controller; // Controller for managing the form field input
+  final String? Function(String?)?
+      validator; // Validator function for form field validation
 
   const TextForm({
     Key? key,
@@ -342,12 +352,12 @@ class TextForm extends StatelessWidget {
 
 // A stateful widget for creating an animated card with an image and optional text
 class AnimatedCard extends StatefulWidget {
-  final String imagePath;  // Path to the image to display on the card
-  final String? text;  // Optional text to display on the card
-  final BoxFit? fit;  // BoxFit for the image
-  final bool? reverse;  // Boolean to indicate if the animation should reverse
-  final double? height;  // Height of the image
-  final double? width;  // Width of the image
+  final String imagePath; // Path to the image to display on the card
+  final String? text; // Optional text to display on the card
+  final BoxFit? fit; // BoxFit for the image
+  final bool? reverse; // Boolean to indicate if the animation should reverse
+  final double? height; // Height of the image
+  final double? width; // Width of the image
 
   const AnimatedCard({
     Key? key,
@@ -364,7 +374,8 @@ class AnimatedCard extends StatefulWidget {
 }
 
 // State class for AnimatedCard
-class _AnimatedCardState extends State<AnimatedCard> with SingleTickerProviderStateMixin {
+class _AnimatedCardState extends State<AnimatedCard>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 4),
@@ -415,10 +426,12 @@ class _AnimatedCardState extends State<AnimatedCard> with SingleTickerProviderSt
 
 // Class for adding data to Firestore
 class AddDataFirestore {
-  final CollectionReference response = FirebaseFirestore.instance.collection('messages');
+  final CollectionReference response =
+      FirebaseFirestore.instance.collection('messages');
 
   // Method for adding response data to Firestore
-  Future<bool> addResponse(String firstName, String lastName, String email, String phoneNumber, String message) async {
+  Future<bool> addResponse(String firstName, String lastName, String email,
+      String phoneNumber, String message) async {
     try {
       await response.add({
         'first name': firstName,
