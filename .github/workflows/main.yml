@@ -143,12 +143,12 @@ jobs:
         with:
           flutter-version: '3.24.2'
 
-      - run : |
-          sudo gem install cocoapods
-          cd ios
-          pod install
+#      - run : |
+#          sudo gem install cocoapods
+#          cd ios
+#          pod install
       - run : flutter pub get
-      - run: flutter build ios --no-codesign
+      - run: flutter build ios --release --no-codesign
 
 
 
