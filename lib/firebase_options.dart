@@ -30,10 +30,7 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -52,16 +49,16 @@ class DefaultFirebaseOptions {
     messagingSenderId: '555718417628',
     projectId: 'portfolio-782e9',
     authDomain: 'portfolio-782e9.firebaseapp.com',
-    storageBucket: 'portfolio-782e9.appspot.com',
+    storageBucket: 'portfolio-782e9.firebasestorage.app',
     measurementId: 'G-DMWX170PZ9',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCJemnZV4Seo9n_atjl-FIrGEKa1yf95Ww',
-    appId: '1:555718417628:android:327bc09099557d664be819',
+    appId: '1:555718417628:android:efd938149254de844be819',
     messagingSenderId: '555718417628',
     projectId: 'portfolio-782e9',
-    storageBucket: 'portfolio-782e9.appspot.com',
+    storageBucket: 'portfolio-782e9.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
@@ -69,8 +66,19 @@ class DefaultFirebaseOptions {
     appId: '1:555718417628:ios:b6c3e43ba75d4f8e4be819',
     messagingSenderId: '555718417628',
     projectId: 'portfolio-782e9',
-    storageBucket: 'portfolio-782e9.appspot.com',
+    storageBucket: 'portfolio-782e9.firebasestorage.app',
     iosClientId: '555718417628-v5r90hccobuaf7jhs6p5ahbpbh28cnk3.apps.googleusercontent.com',
     iosBundleId: 'com.codingliquids.paulinaKnop',
   );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyDBteJ2zmqFASOcxok7T-hlAkx6CpT2yoc',
+    appId: '1:555718417628:web:678ba3c81f59be354be819',
+    messagingSenderId: '555718417628',
+    projectId: 'portfolio-782e9',
+    authDomain: 'portfolio-782e9.firebaseapp.com',
+    storageBucket: 'portfolio-782e9.firebasestorage.app',
+    measurementId: 'G-JF0GKJ5MRS',
+  );
+
 }
