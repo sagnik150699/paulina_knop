@@ -40,7 +40,7 @@ jobs:
 
       # Step 7: Upload Windows Artifact
       - name: Upload Windows Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: windows-app
           path: build/windows/runner/Release/
@@ -51,7 +51,7 @@ jobs:
 
       # Step 9: Upload APK Artifact
       - name: Upload APK Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: android-app
           path: build/app/outputs/flutter-apk/app-release.apk
@@ -62,7 +62,7 @@ jobs:
 
       # Step 11: Upload Web Artifact
       - name: Upload Web Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: web-app
           path: build/web/
@@ -185,7 +185,7 @@ jobs:
 #        run: flutter build apk --release
 #
 #      - name: Upload APK Artifact
-#        uses: actions/upload-artifact@v3
+#        uses: actions/upload-artifact@v4
 #        with:
 #          name: android-app
 #          path: build/app/outputs/flutter-apk/app-release.apk
@@ -194,7 +194,7 @@ jobs:
 #        run: flutter build web --release
 #
 #      - name: Upload Web Artifact
-#        uses: actions/upload-artifact@v3
+#        uses: actions/upload-artifact@v4
 #        with:
 #          name: web-app
 #          path: build/web/
