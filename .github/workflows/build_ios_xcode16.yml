@@ -1,11 +1,8 @@
 name: iOS CI - Xcode 16
 
 on:
-  workflow_dispatch:
   push:
-    branches: [main]
-  pull_request:
-
+    branches: ["**"]
 jobs:
   build_ios_xcode16:
     name: Build iOS (Xcode 16)

@@ -2,8 +2,7 @@ name: Flutter CI/CD
 
 on:
   push:
-    branches:
-      - master
+    branches: ["**"]
 
 jobs:
   build_windows:
