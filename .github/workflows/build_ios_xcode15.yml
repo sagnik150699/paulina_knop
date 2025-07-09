@@ -2,7 +2,7 @@ name: iOS CI - Xcode 15
 
 on:
   push:
-    branches: ["**"]
+    branches: [ "**" ]
 
 jobs:
   build_ios_xcode15:
@@ -47,29 +47,28 @@ jobs:
 
           # Inject Swift preview flag to Firebase pods
           if ! grep -q "AccessLevelOnImport" ios/Podfile; then
-            cat >> ios/Podfile <<'SWIFTFLAG'
-
-post_install do |installer|
-  installer.pods_project.targets.each do |t|
-    if ['FirebaseCoreInternal', 'FirebaseSessions'].include? t.name
-      t.build_configurations.each do |c|
-        flags = c.build_settings['OTHER_SWIFT_FLAGS'] || '$(inherited)'
-        c.build_settings['OTHER_SWIFT_FLAGS'] = "#{flags} -enable-experimental-feature AccessLevelOnImport"
-      end
-    end
-  end
-end
-SWIFTFLAG
+            cat >> ios/Podfile <<'EOF'
+          post_install do |installer|
+          installer.pods_project.targets.each do |t|
+          if ['FirebaseCoreInternal', 'FirebaseSessions'].include? t.name
+          t.build_configurations.each do |c|
+          flags = c.build_settings['OTHER_SWIFT_FLAGS'] || '$(inherited)'
+          c.build_settings['OTHER_SWIFT_FLAGS'] = "#{flags} -enable-experimental-feature AccessLevelOnImport"
+          end
+          end
+          end
+          end
+          EOF
           fi
-
+  
           # Bump deployment target in Xcode project to 13.0
           sed -i '' -E 's/IPHONEOS_DEPLOYMENT_TARGET = [0-9]+\.[0-9]+/IPHONEOS_DEPLOYMENT_TARGET = 13.0/g' ios/Runner.xcodeproj/project.pbxproj
 
-      - name: Install CocoaPods dependencies
-        run: |
-          cd ios
-          pod install --repo-update
-          cd ..
+          - name: Install CocoaPods dependencies
+            run: |
+              cd ios
+              pod install --repo-update
+              cd ..
 
       - name: Build iOS (no codesign)
         run: flutter build ios --no-codesign
