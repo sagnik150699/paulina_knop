@@ -6,6 +6,12 @@ Website: [sagnikbhattacharya.com](https://sagnikbhattacharya.com)
 
 # Portfolio App With Flutter by Coding Liquids
 
+## Course
+
+This project is part of **The Complete Flutter Course: Build Android, iOS, and Web apps**.
+
+[View the course on Coding Liquids](https://www.codingliquids.com/courses/Flutter-Course-Learn-to-Build-Android-iOS-and-Web-apps-637b978ee4b08f9aaa22d2cb)
+
 Personal Portfolio Flutter App
 Welcome to this Flutter-based portfolio application by Coding Liquids, designed to showcase an individual's achievements, skills, and projects.
 # Running the app
